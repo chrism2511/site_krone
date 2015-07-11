@@ -1,63 +1,49 @@
 /** In this file, we create a React component which incorporates components provided by material-ui */
 
 let React = require('react');
-let mui = require('material-ui');
-let RaisedButton = mui.RaisedButton;
-let Dialog = mui.Dialog
-let ThemeManager = new mui.Styles.ThemeManager();
-let Colors = mui.Styles.Colors;
+let Pane = require('./pane.jsx');
+let TargetButton = require('./targetButton.jsx');
+//let mui = require('material-ui');
+//let RaisedButton = mui.RaisedButton;
+//let Dialog = mui.Dialog
+//let ThemeManager = new mui.Styles.ThemeManager();
+//let Colors = mui.Styles.Colors;
 
-let Main = React.createClass({
+class Main extends React.Component {
 
-  childContextTypes: {
-    muiTheme: React.PropTypes.object
-  },
-
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    };
-  },
-
-  componentWillMount() {
-    ThemeManager.setPalette({
-      accent1Color: Colors.deepOrange500
-    });
-  },
-
+  componentDidMount() {
+    //componentHandler.upgradeAllRegistered();
+  }
   render() {
-
-    let containerStyle = {
-      textAlign: 'center',
-      paddingTop: '200px'
+    var panes = [];
+    var links = [];
+    var sections = "Splash,What,Where,How,Book,Contact".split(",");
+    for (var section of sections) {
+      links.push(<TargetButton key={section} targetName={section} />);
+      panes.push(<Pane key={section} sectionName={section} />);
     };
-
-    let standardActions = [
-      { text: 'Okay' }
-    ];
-
     return (
-      <div style={containerStyle}>
-        <Dialog
-          title="Super Secret Password"
-          actions={standardActions}
-          ref="superSecretPasswordDialog">
-          1-2-3-4-5
-        </Dialog>
-        
-        <h1>material-ui</h1>
-        <h2>example project</h2>
-
-        <RaisedButton label="Super Secret Password" primary={true} onTouchTap={this._handleTouchTap} />
-
+      <div>
+         <nav className="navbar navbar-inverse transparent navbar-fixed-top" role="navigation">
+          <nav className="navbar-inner">
+            <div className="container-fluid">
+              <div className="collapse navbar-collapse" id="example-nav-collapse">
+                <ul className="nav navbar-nav">
+                  <li>
+                    {links}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </nav>
+        <main>
+          {panes}
+        </main>
       </div>
     );
-  },
-
-  _handleTouchTap() {
-    this.refs.superSecretPasswordDialog.show();
   }
 
-});
+};
 
 module.exports = Main;
