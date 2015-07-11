@@ -17,25 +17,16 @@ class Main extends React.Component {
   render() {
     var panes = [];
     var links = [];
-    var sections = "Splash,What,Where,How,Book,Contact".split(",");
-    for (var section of sections) {
+    var sections = "Home,Services,Region,Technology,Booking,Contact".split(",");
+    for (var section in sections) {
+      section = sections[section];
       links.push(<TargetButton key={section} targetName={section} />);
       panes.push(<Pane key={section} sectionName={section} />);
     };
     return (
-      <div>
-         <nav className="navbar navbar-inverse transparent navbar-fixed-top" role="navigation">
-          <nav className="navbar-inner">
-            <div className="container-fluid">
-              <div className="collapse navbar-collapse" id="example-nav-collapse">
-                <ul className="nav navbar-nav">
-                  <li>
-                    {links}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <div id='content'>
+        <nav className="navbar">
+            {links}
         </nav>
         <main>
           {panes}

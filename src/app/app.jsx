@@ -2,6 +2,7 @@
   let React = require('react/addons');
   let injectTapEventPlugin = require('react-tap-event-plugin');
   let Main = require('./components/main.jsx'); // Our custom react component
+  window.Symbol = require('es6-symbol');
 
   //Needed for React Developer Tools
   window.React = React;

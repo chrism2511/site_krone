@@ -1,35 +1,74 @@
-html {
-  font-family: 'Roboto', sans-serif;
+html { font-family: 'Roboto', sans-serif; }
+body { font-size: 13px; line-height: 20px; }
+
+.fullheight { min-height: 100vh; }
+
+nav.navbar {
+	position: fixed;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	-webkit-justify-content: center;
+	width: 100vw;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: .25em;
+}
+nav.navbar { top: 3vh; }
+nav.navbar:hover {
+	background-color: rgba(255,255,255,0.15);
+	transition: background 0.35s ease-in-out;
 }
 
-body {
-  font-size: 13px;
-  line-height: 20px;
+#home {
+	padding-top: 10vh;
+	background: url('http://i.imgur.com/0JQxkW7.jpg') no-repeat center #06c;
+	background-size: cover;
 }
-.fullheight {
-	min-height: 100vh;
-}
-nav { margin-left: auto; margin-right: auto; max-width: 75vw; display: block; width: 75vw;}
-#splash { background: linear-gradient( 45deg, #39c, #3ce ); }
-#what { background: radial-gradient(#eee, #aaa); }
-#where { background: linear-gradient( 45deg, #c93, #ec3 ); }
-#how { background: radial-gradient(#999, #aaa); }
-#book { background: linear-gradient( 45deg, #c39, #e3c ); }
+#services { background: radial-gradient(#eee, #aaa); }
+#region { background: linear-gradient(45deg, #c93, #ec3 ); }
+#technology { background: radial-gradient(#999, #aaa); }
+#booking { background: linear-gradient(45deg, #c39, #e3c ); }
 #contact { background: radial-gradient(#fcc, #cfc); }
-
 .mdl-grid { background: #606; }
-main > .mdl-cell { margin: 0; width: 100%;}
 
-.navbar-fixed-top {
-	top: 3vh;
+/* Material Design Lite overrides */
+
+main > .mdl-cell, .mdl-cell > .mdl-cell { margin: 0; width: 100%;}
+
+.mdl-button { color: white;	font-size: 13px; }
+
+section {
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-align-content: center;
+	align-content: center;
+	display: -webkit-flex;
+	display: flex;
+	padding: 6vmin;
 }
 
-.navbar.transparent.navbar-inverse {
-    border-width: 0px;
-    box-shadow: 0px 0px;
-    background: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+.thing {
+	font-family: Raleway;
+	font-weight: 500;
+	flex: 25% 25% 25%;
+	min-height: 75%;
+	margin: 3vmin;
+	padding: 3vmin;
+	background-color: rgba(255,255,255,0.75);
+	border-radius: 5px;
 }
-.mdl-button {
+
+section h1 {
+	font-family: Raleway;
+	font-weight: 200;
 	color: white;
-	font-size: 13px;
+	font-size: 45px;
+	text-shadow: 0px 0px 1px #000, 1px 1px 2px #666, -1px -1px 2px #666;
 }
